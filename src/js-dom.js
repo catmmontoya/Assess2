@@ -94,16 +94,28 @@ document.body.addEventListener("click", (event) => {
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
 
-const factorial = document.querySelector("#factorize");
+const factorialBtn = document.querySelector("#factorialize");
 const resultSpan = document.querySelector("#result");
 
-function factorialize(num1) {
-  let total = num1;
-  if (num1 === 0 || num1 === 1) return 1;
+factorialBtn.addEventListener("click", () => {
+  const numInput = document.querySelector("#factorial-input").value;
 
-  while (num1 > 1 && num1 % 2 === 0) {
-    num1--;
-    total = total * num1;
+  const num = parseInt(numInput);
+  if (isNaN(num) || num < 0 || num !== Math.floor(num)) {
+    resultSpan.textContent = "Please enter a valid positive integer.";
+  } else {
+    const result = factorialize(num);
+    resultSpan.textContent = `Factorial: ${result}`;
+  }
+});
+
+function factorialize(num) {
+  let total = 1;
+  if (num === 0 || num === 1) return 1;
+
+  while (num > 1) {
+    total *= num;
+    num--;
   }
   return total;
 }
@@ -123,4 +135,17 @@ function factorialize(num1) {
 // the feedback text to say "The word must be at least 4 characters long." and
 // change the color of the text to red..
 
-/// TODO: replace this with your code
+const form = document.querySelector("#recommend-word");
+const textarea = document.querySelector("#word");
+const feedback = document.querySelector(".form-feedback");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (textarea.value.length >= 4) {
+    feedback.textContent = "Thanks for your submission!";
+    feedback.style.color = "green";
+  } else {
+    feedback.textContent = "The word must be at least 4 characters long.";
+    feedback.style.color = "red";
+  }
+});
