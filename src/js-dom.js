@@ -63,10 +63,20 @@ button.addEventListener("dblclick", () => {
 // Clicking on "Turn Stuff Red" should make text red and clicking on "Turn
 // Stuff Blue" should make text blue.
 
-const changeColor = document.querySelector(".changes-colors");
+const changeColors = document.querySelectorAll(".changes-colors");
+const redBtn = document.getElementById("red");
+const blueBtn = document.getElementById("blue");
 
-changeColor.addEventListener("click", () => {
-    const
+document.body.addEventListener("click", (event) => {
+  if (event.target === redBtn) {
+    changeColors.forEach((element) => {
+      element.style.color = "red";
+    });
+  } else if (event.target === blueBtn) {
+    changeColors.forEach((element) => {
+      element.style.color = "blue";
+    });
+  }
 });
 
 // Calculate factorial
@@ -84,7 +94,19 @@ changeColor.addEventListener("click", () => {
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
 
-/// TODO: replace this with your code
+const factorial = document.querySelector("#factorize");
+const resultSpan = document.querySelector("#result");
+
+function factorialize(num1) {
+  let total = num1;
+  if (num1 === 0 || num1 === 1) return 1;
+
+  while (num1 > 1 && num1 % 2 === 0) {
+    num1--;
+    total = total * num1;
+  }
+  return total;
+}
 
 // Validate a form
 //
