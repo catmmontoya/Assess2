@@ -8,7 +8,14 @@
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
 
-/// TODO: replace this with your code
+const loginButton = document.querySelector("#auth");
+loginButton.addEventListener("click", function () {
+  if (loginButton.textContent === "Log in") {
+    loginButton.textContent = "Log out";
+  } else {
+    loginButton.textContent = "Log in";
+  }
+});
 
 // Send an alert
 //
@@ -17,16 +24,20 @@
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
 
-/// TODO: replace this with your code
+const submitBtn = document.querySelector("#submitbtn");
+
+submitBtn.addEventListener("click", () => {
+  alert("Your message here");
+});
 
 // Add an item
 //
 // This is a pretty silly feature -- when a user clicks on the
-// button (the one that says "Double-ulick to add an item"), a new list
+// button (the one that says "Double-click to add an item"), a new list
 // item should appear.
 //
 // In other words, whenever a user clicks on the button, just
-// add another <li>Item</li>. So, a user has clicked on the
+// add another <li>Item</li>. So, a user has double clicked on the
 // button once, the list should look like this:
 //
 //   <ol id="list">
@@ -34,7 +45,14 @@
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
-/// TODO: replace this with your code
+const list = document.querySelector("#list");
+const button = document.querySelector("#adder");
+
+button.addEventListener("dblclick", () => {
+  const newItem = document.createElement("li");
+  newItem.textContent = "Item";
+  list.appendChild(newItem);
+});
 
 // Change colors
 //
@@ -45,7 +63,11 @@
 // Clicking on "Turn Stuff Red" should make text red and clicking on "Turn
 // Stuff Blue" should make text blue.
 
-/// TODO: replace this with your code
+const changeColor = document.querySelector(".changes-colors");
+
+changeColor.addEventListener("click", () => {
+    const
+});
 
 // Calculate factorial
 //
